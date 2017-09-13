@@ -1,0 +1,82 @@
+<ion-header >
+  <ion-navbar color="dark" no-border-bottom>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title text-center>
+    Movies 
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+          <ion-item-group>
+            <ion-item-divider sticky>
+              <ion-label text-uppercase>
+                New in Theaters
+              </ion-label>
+             </ion-item-divider>
+            <ion-slides pager="true">
+              <ion-slide *ngFor="let slide of NewInTheaters">
+                <ion-item (click)="GoToMovie(slide)">
+                     <ion-label color="primary" class="title_movie" text-left>
+                      {{slide.title}}
+                     </ion-label>
+                </ion-item>
+                <img src="{{image_url+slide.backdrop_path}}" class="slide-image" float-left width="50%" height="50%" (click)="GoToMovie(slide)"/>
+              </ion-slide>
+            </ion-slides>
+         </ion-item-group>
+    </ion-list>
+  	
+    <ion-list>
+     <ion-item-group>
+       <ion-item-divider sticky>
+         <ion-label text-uppercase>
+           Popular
+         </ion-label>
+        </ion-item-divider>
+  			<ion-slides pager="true">
+  				<ion-slide *ngFor="let slide of PopularMovies">
+  				   <ion-item (click)="GoToMovie(slide)">
+              <ion-label color="primary" class="title_movie" float-left>
+               {{slide.title}}
+              </ion-label>
+            </ion-item>
+  					<img src="{{image_url+slide.backdrop_path}}" class="slide-image" float-left width="50%" height="50%" (click)="GoToMovie(slide)"/>
+  				</ion-slide>
+  			</ion-slides>
+      </ion-item-group>
+    </ion-list>
+
+   <ion-list>
+    <ion-item-group>
+          <ion-item-divider sticky>
+           <ion-label text-uppercase >
+            Highest Rated This Year
+           </ion-label>
+          </ion-item-divider>
+    			<ion-slides pager="true">
+    				<ion-slide *ngFor="let slide of HighestRatedMovies">
+              <ion-item (click)="GoToMovie(slide)">
+                <ion-label color="primary" class="title_movie" float-left>
+                 {{slide.title}}
+                </ion-label>
+              </ion-item>
+    					<img src="{{image_url+slide.backdrop_path}}" class="slide-image" float-left width="50%" height="50%" (click)="GoToMovie(slide)"/>
+    				</ion-slide>
+    			</ion-slides>
+    </ion-item-group>
+  </ion-list>
+   <ion-fab right bottom>
+    <button ion-fab color="primary"><ion-icon name="share"></ion-icon></button>
+    <ion-fab-list side="top" color="primary">
+      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+
+</ion-content>

@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title>{{title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+<ion-card>
+  <ion-item>
+    <ion-avatar item-start>
+      <img src="{{image_url+poster_path}}">
+    </ion-avatar>
+    <h2>{{title}}</h2>
+    <p>Release Date {{ release_date}}</p>
+  </ion-item>
+
+  <img src="{{image_url+backdrop_path}}">
+
+  <ion-card-content>
+    <p text-wrap>{{overview}}</p>
+  </ion-card-content>
+
+  <ion-row>
+    <ion-col>
+      <button ion-button icon-left clear small>
+        <ion-icon name="thumbs-up"></ion-icon>
+        <div>{{vote_count}}</div>
+      </button>
+    </ion-col>
+    <ion-col>
+      <button ion-button icon-left clear small>
+        <ion-icon name="text"></ion-icon>
+        <div>{{popularity}}</div>
+      </button>
+    </ion-col>
+  </ion-row>
+
+</ion-card>
+
+</ion-content>
